@@ -96,21 +96,13 @@ struct ControlCenterBluetoothBatteryProvider: BluetoothBatteryProviding {
         openBluetoothDetails(for: bluetoothControl)
         usleep(500_000)
 
-        guard
-            let bluetoothList = findDescendant(in: children(of: application), matching: {
-                identifier(of: $0) == "bluetooth-header" && role(of: $0) == kAXCheckBoxRole as String
-            })
-        else {
-            return []
+        let candidates = allDescendants(in: children(of: application)).filter {
+            identifier(of: $0).hasPrefix("bluetooth-device-")
         }
 
-        return children(of: bluetoothList).compactMap { element in
+        return candidates.compactMap { element in
             let identifier = identifier(of: element)
-            guard identifier.hasPrefix("bluetooth-device-") else {
-                return nil
-            }
-
-            let text = firstMeaningfulText(for: element)
+            let text = meaningfulText(for: element)
             return ScrapedDeviceEntry(identifier: identifier, text: text)
         }
     }
@@ -133,35 +125,18 @@ struct ControlCenterBluetoothBatteryProvider: BluetoothBatteryProviding {
         }
     }
 
-    private static func firstMeaningfulText(for element: AXUIElement) -> String {
-        let candidates = [
-            description(of: element),
-            title(of: element),
-            value(of: element),
-        ].filter { !$0.isEmpty }
-
-        if let directMatch = candidates.first {
-            return directMatch
-        }
-
-        for child in children(of: element) {
-            let childCandidates = [
-                description(of: child),
-                title(of: child),
-                value(of: child),
-            ].filter { !$0.isEmpty }
-
-            if let first = childCandidates.first {
-                return first
-            }
-        }
-
-        return ""
+    private static func meaningfulText(for element: AXUIElement) -> String {
+        let texts = collectMeaningfulTexts(in: element)
+        return texts.joined(separator: "\n")
     }
 
     private static func parsePercentage(from text: String) -> Int? {
-        let digits = text.filter(\.isNumber)
-        guard text.contains("%"), let percentage = Int(digits), (0...100).contains(percentage) else {
+        let pattern = #/(\d{1,3})[^\d%]*%/#
+        guard let match = text.firstMatch(of: pattern) else {
+            return nil
+        }
+
+        guard let percentage = Int(match.1), (0...100).contains(percentage) else {
             return nil
         }
 
@@ -211,6 +186,35 @@ struct ControlCenterBluetoothBatteryProvider: BluetoothBatteryProviding {
         stringAttribute("AXIdentifier", on: element)
     }
 
+    private static func collectMeaningfulTexts(in element: AXUIElement) -> [String] {
+        var seen: Set<String> = []
+        var texts: [String] = []
+
+        func visit(_ current: AXUIElement) {
+            let candidates = [
+                description(of: current),
+                title(of: current),
+                value(of: current),
+            ]
+
+            for candidate in candidates {
+                let trimmed = candidate.trimmingCharacters(in: .whitespacesAndNewlines)
+                guard !trimmed.isEmpty, seen.insert(trimmed).inserted else {
+                    continue
+                }
+
+                texts.append(trimmed)
+            }
+
+            for child in children(of: current) {
+                visit(child)
+            }
+        }
+
+        visit(element)
+        return texts
+    }
+
     private static func stringAttribute(_ name: String, on element: AXUIElement) -> String {
         var value: CFTypeRef?
         guard AXUIElementCopyAttributeValue(element, name as CFString, &value) == .success else {
@@ -235,5 +239,23 @@ struct ControlCenterBluetoothBatteryProvider: BluetoothBatteryProviding {
         }
 
         return nil
+    }
+
+    private static func allDescendants(in elements: [AXUIElement]) -> [AXUIElement] {
+        var result: [AXUIElement] = []
+
+        func walk(_ element: AXUIElement) {
+            result.append(element)
+
+            for child in children(of: element) {
+                walk(child)
+            }
+        }
+
+        for element in elements {
+            walk(element)
+        }
+
+        return result
     }
 }

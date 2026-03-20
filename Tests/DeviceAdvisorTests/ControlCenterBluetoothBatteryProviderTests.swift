@@ -22,6 +22,34 @@ struct ControlCenterBluetoothBatteryProviderTests {
     }
 
     @Test
+    func parsesKnownPercentagesWithNonBreakingSpaces() {
+        let entries = [
+            ControlCenterBluetoothBatteryProvider.ScrapedDeviceEntry(
+                identifier: "bluetooth-device-E8:46:23:05:66:39",
+                text: "83\u{00A0}%\n1"
+            ),
+        ]
+
+        let states = ControlCenterBluetoothBatteryProvider.parseBatteryStates(from: entries)
+
+        #expect(states["E8:46:23:05:66:39"] == .known(83))
+    }
+
+    @Test
+    func parsesKnownPercentagesWhenTheEntryAlsoContainsTheDeviceName() {
+        let entries = [
+            ControlCenterBluetoothBatteryProvider.ScrapedDeviceEntry(
+                identifier: "bluetooth-device-D3:27:15:4E:B9:A5",
+                text: "MX Master 3S M\n45 %\nConectado"
+            ),
+        ]
+
+        let states = ControlCenterBluetoothBatteryProvider.parseBatteryStates(from: entries)
+
+        #expect(states["D3:27:15:4E:B9:A5"] == .known(45))
+    }
+
+    @Test
     func marksNamedEntriesWithoutPercentAsUnavailable() {
         let entries = [
             ControlCenterBluetoothBatteryProvider.ScrapedDeviceEntry(
