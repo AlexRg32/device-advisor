@@ -1,40 +1,82 @@
 # Project Domain Context
 
-> **Note to the Developer**: This file is the primary source of truth for the AI agents to understand what your application is about. You must describe your core business rules, entities, and flow here. The agents (`@backend`, `@frontend`, `@architect`) are pre-configured to build a **Spring Boot + React** application, but they rely on this file to know *what* to build.
-
 ## Project Name
 
-[Insert your project name here, e.g., Acme E-Commerce]
+Device Advisor
 
-## Description
+## Product Summary
 
-[A one-sentence description of the project, e.g., A platform for users to buy and sell premium mechanical keyboards.]
+Aplicacion nativa para macOS que monitoriza dispositivos Bluetooth conectados, intenta obtener su nivel de bateria y envia notificaciones locales cuando bajan de un umbral configurable.
 
-## Core Entities
+## Current Product Decisions
 
-[List the main objects in your system]
+- Plataforma inicial: `macOS 14+`
+- Vision futura: `Windows`, sin implementacion inicial
+- Distribucion: uso personal, fuera de App Store
+- App shell: `menu bar app`
+- Ventanas: `settings window` minima
+- Arranque: login at startup
+- Persistencia: `UserDefaults`
 
-- **User**: [Description, e.g., Can register, login, and have roles like BUYER or SELLER.]
-- **Product**: [Description, e.g., Created by sellers, has a price, description, and images.]
-- **Order**: [Description, e.g., Connects a User with multiple Products, tracking payment state.]
+## Core Capabilities
+
+1. Detectar dispositivos Bluetooth conectados.
+2. Intentar leer su bateria por las vias que la plataforma permita.
+3. Mostrar estados claros:
+   - bateria conocida
+   - bateria desconocida
+   - dispositivo conectado pero sin soporte de bateria visible
+4. Lanzar notificaciones locales cuando el nivel baje del umbral global.
+5. Permitir configuracion simple desde ajustes.
+
+## Product Constraint That Must Never Be Hidden
+
+No todos los dispositivos Bluetooth exponen bateria de forma accesible o estandar. El producto debe intentar detectar todos los dispositivos conectados, pero nunca inventar porcentajes ni prometer cobertura universal.
+
+## Target Device Scope
+
+- Objetivo UX: todos los dispositivos Bluetooth conectados que el sistema pueda observar
+- Objetivo tecnico: combinar rutas estandar y adaptadores por proveedor o tipo de dispositivo cuando merezca la pena
+- Fuera de alcance por ahora:
+  - dispositivos no conectados
+  - historico complejo
+  - sincronizacion en la nube
+  - cuenta de usuario
+
+## Main User Flows
+
+1. El usuario abre la app desde la barra de menu.
+2. Ve la lista de dispositivos detectados y el estado de bateria o disponibilidad.
+3. Ajusta el umbral global de bateria baja.
+4. Activa arranque al iniciar sesion.
+5. Recibe una notificacion local cuando un dispositivo conectado baja del umbral.
 
 ## Key Business Rules
 
-[List the absolutely non-negotiable rules of your domain]
+1. Nunca enviar una notificacion basada en un valor de bateria inventado.
+2. Nunca tratar `unknown battery` como `0%`.
+3. No notificar repetidamente sin una politica clara de deduplicacion o enfriamiento.
+4. Los dispositivos conectados deben seguir visibles aunque la bateria no sea legible.
+5. La UI debe explicar claramente cuando el sistema no puede leer la bateria de un dispositivo.
 
-1. E.g., A user cannot buy their own products.
-2. E.g., Products must have at least one image before being published.
-3. E.g., Stock must be reduced transactionally upon order placement.
+## Key Technical Decisions
 
-## User Roles & Permissions
+- UI principal en `SwiftUI`
+- Interoperabilidad con `AppKit` si alguna API o flujo del sistema lo necesita
+- Integraciones de sistema aisladas detras de protocolos y adaptadores
+- Persistencia ligera en `UserDefaults`
+- Notificaciones locales del sistema
 
-- **Admin**: [What they can do]
-- **Standard User**: [What they can do]
-- **Guest**: [What they can see without logging in]
+## Planned Architecture Direction
 
-## Important Technical Decisions (Specific to this project)
+- `App/UI`: menu bar, settings, presentacion
+- `Domain`: modelos de dispositivo, estado de bateria, reglas de notificacion
+- `Platform`: Bluetooth, observacion del sistema, login item, notificaciones
+- `Infrastructure`: almacenamiento local y utilidades
 
-[List any deviation from the standard Spring Boot / React setup, or specific integrations like Stripe for payments, AWS S3 for images, etc.]
+## Risks To Keep Visible
 
-- Payment Gateway: [e.g., Stripe]
-- Email Provider: [e.g., SendGrid]
+- Cobertura irregular entre marcas y tipos de dispositivo
+- Diferencias entre bateria real, cacheada o no disponible
+- Dependencia de APIs de sistema y posibles limitaciones no documentadas
+- Riesgo de ruido si la politica de notificaciones no tiene cooldown

@@ -1,18 +1,23 @@
 ---
 name: writing-plans
-description: Use when you have a spec or requirements for a task, BEFORE touching code. This is the tactical blueprint for all implementations.
+description: Use when you have requirements for a native app task before touching code. Produces atomic, testable implementation plans.
 ---
 
 # Writing Implementation Plans
 
 ## Rules
 
-1. **Granularity**: Tasks MUST be 5-15 mins.
-2. **Standard Loop**:
-   - Write failing test (RED).
-   - Minimal code (GREEN).
-   - Verify (PASS).
-   - Mark task as done.
+1. Tasks must be 5-15 minutes when possible.
+2. Foundation first, UI integration second, polish last.
+3. Every task needs a verification step.
+4. Note docs updates whenever behavior or architecture changes.
+
+## Standard Loop
+
+1. Write or identify the failing test or verification.
+2. Implement the smallest useful change.
+3. Run the verification command.
+4. Mark the task complete.
 
 ## Plan Template
 
@@ -21,10 +26,10 @@ description: Use when you have a spec or requirements for a task, BEFORE touchin
 > Goal: [value]
 > Architecture: [pattern]
 
-### Task N: [File]
-1. Failing test in `XyzTests.java`.
-2. Implement in `Xyz.java`.
-3. `mvn test -Dtest=XyzTests`
-4. Update `docs/` if necessary.
-5. Mark task as `[x]` in `plan.md`.
+### Task N: [Name]
+1. Add failing test or define manual verification.
+2. Implement in the target file(s).
+3. Run `swift test` or `xcodebuild test -scheme <Scheme> -destination 'platform=macOS'`.
+4. Update docs if needed.
+5. Mark task as done in `plan.md`.
 ```

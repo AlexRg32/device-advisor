@@ -64,14 +64,14 @@ git status --porcelain
 Detect the project type and run the appropriate build command:
 
 ```bash
-# Node.js projects
-if [ -f "package.json" ]; then
-  npm run build 2>&1 || echo "⚠️ BUILD_FAILED"
+# Swift package projects
+if [ -f "Package.swift" ]; then
+  swift test 2>&1 || echo "⚠️ BUILD_FAILED"
 fi
 
-# Java/Spring Boot projects
-if [ -f "pom.xml" ]; then
-  mvn compile -q 2>&1 || echo "⚠️ BUILD_FAILED"
+# Xcode projects
+if ls *.xcodeproj >/dev/null 2>&1 || ls *.xcworkspace >/dev/null 2>&1; then
+  echo "Run: xcodebuild test -scheme <Scheme> -destination 'platform=macOS'"
 fi
 ```
 

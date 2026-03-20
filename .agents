@@ -1,0 +1,14 @@
+# Agent Usage Policy
+
+En este proyecto siempre se utilizaran los flujos de trabajo definidos en `.agent`.
+
+Reglas obligatorias:
+
+1. Antes de implementar cambios sustanciales, usar los workflows de `.agent`.
+2. Para analisis y diseno, usar `@[/think]`.
+3. Para implementacion, usar `@[/forge]`.
+4. Para auditoria, usar `@[/audit]`.
+5. Para entrega y cierre, usar `@[/ship]` o `@[/pr]` segun corresponda.
+6. No se debe trabajar fuera de estos flujos salvo que el usuario lo pida de forma explicita.
+
+Este archivo actua como recordatorio operativo: `.agent` es la fuente de verdad para el proceso de trabajo del proyecto.

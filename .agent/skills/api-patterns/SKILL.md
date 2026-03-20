@@ -1,83 +1,28 @@
 ---
 name: api-patterns
-description: API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination.
+description: Historical skill name kept for compatibility. Use for designing internal service contracts, adapter boundaries, and event flows in local-first native apps.
 allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 
-# API Patterns
+# Internal Service Contract Patterns
 
-> API design principles and decision-making for 2025.
-> **Learn to THINK, not copy fixed patterns.**
+Use this skill when defining how modules communicate inside the app.
 
-## 🎯 Selective Reading Rule
+## Prefer
 
-**Read ONLY files relevant to the request!** Check the content map, find what you need.
+- protocol-based boundaries
+- small service interfaces
+- explicit domain models for device and battery state
+- predictable event or async-stream flows
 
----
+## Ask Before Designing
 
-## 📑 Content Map
+- Is this boundary platform-specific?
+- Does it need to survive a future Windows implementation?
+- Is a protocol actually helping, or just adding ceremony?
 
-| File | Description | When to Read |
-|------|-------------|--------------|
-| `api-style.md` | REST vs GraphQL vs tRPC decision tree | Choosing API type |
-| `rest.md` | Resource naming, HTTP methods, status codes | Designing REST API |
-| `response.md` | Envelope pattern, error format, pagination | Response structure |
-| `graphql.md` | Schema design, when to use, security | Considering GraphQL |
-| `trpc.md` | TypeScript monorepo, type safety | TS fullstack projects |
-| `versioning.md` | URI/Header/Query versioning | API evolution planning |
-| `auth.md` | JWT, OAuth, Passkey, API Keys | Auth pattern selection |
-| `rate-limiting.md` | Token bucket, sliding window | API protection |
-| `documentation.md` | OpenAPI/Swagger best practices | Documentation |
-| `security-testing.md` | OWASP API Top 10, auth/authz testing | Security audits |
+## Anti-Patterns
 
----
-
-## 🔗 Related Skills
-
-| Need | Skill |
-|------|-------|
-| API implementation | `@[skills/backend-development]` |
-| Data structure | `@[skills/database-design]` |
-| Security details | `@[skills/security-hardening]` |
-
----
-
-## ✅ Decision Checklist
-
-Before designing an API:
-
-- [ ] **Asked user about API consumers?**
-- [ ] **Chosen API style for THIS context?** (REST/GraphQL/tRPC)
-- [ ] **Defined consistent response format?**
-- [ ] **Planned versioning strategy?**
-- [ ] **Considered authentication needs?**
-- [ ] **Planned rate limiting?**
-- [ ] **Documentation approach defined?**
-
----
-
-## ❌ Anti-Patterns
-
-**DON'T:**
-
-- Default to REST for everything
-- Use verbs in REST endpoints (/getUsers)
-- Return inconsistent response formats
-- Expose internal errors to clients
-- Skip rate limiting
-
-**DO:**
-
-- Choose API style based on context
-- Ask about client requirements
-- Document thoroughly
-- Use appropriate status codes
-- **Return human-readable, personalized error messages** for user interactions (mapped from business/validation logic).
-
----
-
-## Script
-
-| Script | Purpose | Command |
-|--------|---------|---------|
-| `scripts/api_validator.py` | API endpoint validation | `python scripts/api_validator.py <project_path>` |
+- giant god services
+- leaking CoreBluetooth types into unrelated modules
+- event flows with no ownership or deduplication policy

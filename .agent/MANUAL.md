@@ -1,85 +1,112 @@
-# 🧠 Manual del Sistema de IA (Spring/React Stack)
+# Manual del Sistema de IA (macOS Native Stack)
 
-Este sistema de orquestación funciona como un **equipo profesional**, garantizando código riguroso mediante Separación de Responsabilidades y flujos que planifican antes de programar para tu pila tecnológica.
+Este sistema de orquestacion funciona como un equipo tecnico para una app nativa de macOS centrada en:
 
----
+- detectar dispositivos Bluetooth conectados
+- leer o inferir su nivel de bateria cuando el sistema lo permita
+- avisar con notificaciones cuando bajen de un umbral
 
-## 👥 1. El Equipo (Agentes)
+La estrategia actual es `macOS first`, con una arquitectura pensada para extenderse a Windows mas adelante sin forzar hoy decisiones prematuras.
 
-*(Los invocas con `@nombre` o los flujos los usan solos)*:
+Politica operativa del proyecto:
 
-* 📐 **`@architect`**: Toma las decisiones de alto nivel (Modelos de BBDD, rutas REST, seguridad).
-* 🗺️ **`@doc-planner`**: Divide el diseño en un plan de tareas rastreables y gestiona la documentación técnica (`Markdown`, `OpenAPI`).
-* ⚙️ **`@backend`**: Pica el código Java/Spring Boot. (Obliga al uso de Arquitectura en Capas y DTOs).
-* 🎨 **`@frontend`**: Pica el código React/Tailwind. (Asegura enfoque "Mobile-first").
+- El archivo raiz `.agents` refuerza que este proyecto debe trabajarse siempre siguiendo los workflows definidos en `.agent`.
 
----
+## 1. El Equipo
 
-## 🚀 2. Manual de Uso (Workflows)
+- `@architect`: diseña la arquitectura, los limites de plataforma y la estrategia de deteccion de bateria.
+- `@doc-planner`: convierte ideas en planes ejecutables y mantiene la documentacion tecnica.
+- `@backend`: ingeniero de integraciones de plataforma. Implementa Bluetooth, bateria, notificaciones, arranque al iniciar sesion y persistencia local.
+- `@frontend`: ingeniero de interfaz nativa. Implementa menu bar app, ventana de ajustes, estados de UI y experiencia de escritorio.
 
-Usa los comandos con `/` en el chat para trabajar en 4 fases principales (o flujos):
+Nota: se mantiene el nombre `@backend` por compatibilidad con el workflow anterior, pero en este proyecto no significa "servidor"; significa capa de plataforma e integraciones del sistema.
 
-### 🕵️ FASE 0 - Auditar: `@[/audit]`
+## 2. Workflows
 
-**Objetivo:** Escanear proactivamente el proyecto en busca de deuda técnica y vulnerabilidades.
+### Fase 0 - Auditar: `@[/audit]`
 
-* La IA revisa que el código cumple con las guías de estilo de Spring/React, patrones de arquitectura y seguridad (sin modificar nada).
-* Genera un reporte detallado en `.orchestrator/audits/` priorizando los hallazgos (🔴 Críticos, 🟡 Moderados, 🔵 Menores).
-* **Tú decides:** Lees el reporte y usas `@[/forge]` o `@[/think]` sobre los puntos concretos que quieras mejorar.
+Objetivo: revisar el proyecto sin tocar codigo.
 
-### 💡 FASE 1 - Diseñar: `@[/think] [Idea o Feature]`
+- Comprueba si la arquitectura sigue el enfoque nativo de macOS.
+- Busca riesgos reales: permisos, notificaciones, estado desconocido de bateria, mezcla excesiva de UI con logica de plataforma, dependencias innecesarias.
+- Genera un informe en `.orchestrator/audits/`.
 
-**Objetivo:** Planificar sin tocar una sola línea de código.
+### Fase 1 - Pensar: `@[/think] [idea o feature]`
 
-* La IA escanea tu proyecto y genera tu estrategia en la carpeta `.orchestrator/plans/`.
-* Te entregará una *Investigación*, un *Diseño* (BBDD/APIs) y un *Plan de Tareas*.
-* **Tú decides:** Lees el plan de la carpeta. Si falla algo, se lo pides corregir. Si te gusta, sigues a la Fase 2.
+Objetivo: investigar y diseñar sin implementar.
 
-### ⚒️ FASE 2 - Construir: `@[/forge] execute`
+- Analiza el proyecto y genera un plan en `.orchestrator/plans/`.
+- Documenta investigacion, diseno, riesgos, estados no soportados y plan de tareas.
+- Es el paso recomendado antes de tocar deteccion Bluetooth, login items o notificaciones.
 
-**Objetivo:** Picar código basado en el plan consensuado.
+### Fase 2 - Construir: `@[/forge] execute`
 
-* Busca automáticamente el último plan creado por el `/think`.
-* **Crea una rama Git segura** (nunca programa en `main`).
-* Empieza a transformar las tareas del plan en código (`@backend` y `@frontend`), probando que el sistema compile.
-* *Tip: Si se corta la conexión o paras, escribe otra vez `@[/forge] execute` y seguirá por la tarea exacta donde se quedó.*
+Objetivo: implementar el plan acordado.
 
-### 📦 FASE 3 - Entregar: `@[/ship] "Mensaje breve"`
+- Retoma el ultimo plan o uno indicado por ruta.
+- Crea rama segura si hace falta.
+- Implementa tareas con foco en `@backend` y `@frontend`.
+- Verifica compilacion con herramientas nativas (`xcodebuild` o `swift test`, segun el proyecto).
 
-**Objetivo:** Hacer Commit de forma profesional.
+### Fase 3 - Entregar: `@[/ship] "mensaje breve"`
 
-* Analiza el código modificado.
-* Formatea tu mensaje con reglas estrictas ("Conventional Commits" -> ej. `feat: mensaje`).
-* Hace *Push* al repositorio local/remoto para que tú lo fusiones cuando quieras.
+Objetivo: preparar commit profesional y push seguro cuando tu lo decidas.
 
-*(Atajo: Puedes usar `@[/forge] arregla el botón rojo` si es un cambio minúsculo y quieres que lo piense y lo haga todo del tirón asumiendo el riesgo).*
+- Resume cambios.
+- Valida build/test antes de proponer commit.
+- Formatea el mensaje con Conventional Commits.
 
----
+Atajo: para cambios pequeños puedes usar `@[/forge] ajusta el umbral de notificaciones`, pero el sistema seguira intentando documentar el cambio y validar que el comportamiento quede claro.
 
-## 🎒 3. Reglas de Oro Internalizadas
+## 3. Reglas de Oro
 
-1. **Nunca se programa en `main`**: Se automatiza la creación de ramas.
-2. **DTOs Inamovibles**: Los controladores REST de Spring Boot siempre se comunican en *DTOs*, jamás devuelven *Entities* reales.
-3. **El Diseño Manda**: La IA está obligada a documentar arquitecturas y diagramas actualizados en la carpeta `docs/` antes de dar una feature por cerrada.
-4. **Contexto de Proyecto**: Para ayudar a los agentes a entender tu lógica de negocio específica, mantén actualizado el documento en la carpeta `contexts/` o en los archivos principales de `docs/`.
+1. Nunca prometer soporte universal de bateria.
+   Algunos dispositivos Bluetooth no exponen el dato o lo hacen fuera de rutas estandar. El sistema debe diferenciar entre `battery known`, `battery unavailable` y `device unsupported or unknown`.
 
----
+2. macOS first, Windows later.
+   La arquitectura debe dejar costuras claras para otra plataforma, pero el codigo actual optimiza para macOS 14+.
 
-## 💉 4. Inyección en Nuevos Proyectos
+3. Menu bar first.
+   La experiencia principal vive en la barra de menu, con una ventana minima de ajustes.
 
-Esta carpeta `.agent` está diseñada para ser agnóstica al negocio. Para usar este mismo "equipo de agentes" en un nuevo proyecto Spring/React, tienes dos opciones:
+4. Connected devices only.
+   La prioridad del producto es vigilar dispositivos conectados por Bluetooth. No se deben generar falsas expectativas sobre dispositivos apagados, fuera de alcance o sin telemetria de bateria.
 
-### Opción A: Plantilla desde GitHub (Recomendado para empezar de cero)
-1. Convierte el repositorio donde guardas esta carpeta en un **Template Repository** en los ajustes de GitHub.
-2. Cada vez que inicies un proyecto, dale a "Use this template". Tendrás los agentes listos desde el commit inicial.
+5. Documentar limites de plataforma.
+   Cada decision importante sobre deteccion, permisos, fallback o heuristicas debe quedar reflejada en `design.md`, `plan.md` o `docs/`.
 
-### Opción B: Script Global (Recomendado para proyectos ya creados)
-Si ya has hecho un `git init` y quieres traerte los agentes, añade este alias a tu `~/.zshrc` o `~/.bashrc`:
+6. No backend remoto por defecto.
+   Este producto se diseña como app local. Si en el futuro aparece sincronizacion o nube, sera una decision explicita, no una suposicion.
 
-```bash
-# Inyectar agentes IA en el directorio actual
-alias inject-agents="cp -r /Ruta/A/Tu/Repositorio/Central/.agent ./"
-```
-Sustituye `/Ruta/A/Tu/Repositorio/Central` por donde tengas guardado este proyecto en tu disco duro. Luego, en cualquier carpeta de proyecto, simplemente ejecuta `inject-agents`.
+## 4. Stack Objetivo
 
-**⚠️ IMPORTANTE**: Tras inyectar los agentes en un nuevo proyecto, **lo primero que debes hacer** es editar el archivo `.agent/contexts/project-domain.md` para explicarle a los agentes de qué va tu nueva aplicación.
+- `Swift`
+- `SwiftUI`
+- `AppKit` solo cuando haga falta
+- `CoreBluetooth`
+- APIs del sistema para notificaciones y login item
+- `UserDefaults`
+- `XCTest` o `Swift Testing`
+- `macOS 14+`
+
+## 5. Estado del Producto
+
+Decisiones actuales del proyecto:
+
+- Plataforma inicial: `macOS`
+- Vision futura: `Windows`, si el producto demuestra valor
+- Distribucion: uso personal, fuera de App Store
+- Formato de app: `menu bar app + login at startup + settings window`
+- Persistencia: `UserDefaults`
+- Requisito de producto: intentar detectar bateria de todos los dispositivos Bluetooth conectados, asumiendo que no todos reportaran bateria de forma accesible
+
+## 6. Inyeccion en Nuevos Proyectos
+
+Esta carpeta `.agent` es agnostica al negocio, pero esta opinionada para apps nativas de escritorio centradas en integraciones del sistema.
+
+Despues de copiarla a un nuevo proyecto:
+
+1. Actualiza `.agent/contexts/project-domain.md`.
+2. Ajusta la plataforma base si no es `macOS 14+`.
+3. Deja claro si la app es `menu bar`, `windowed`, o ambas.
+4. Declara desde el principio si el proyecto tiene soporte multiplataforma real o solo una aspiracion futura.
