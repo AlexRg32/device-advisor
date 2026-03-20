@@ -9,6 +9,7 @@ Shell minimo de una app nativa para macOS 14+ construida con SwiftUI.
 - fijar la arquitectura base del proyecto
 - dejar preparada la persistencia local inicial
 - permitir editar el umbral global desde ajustes
+- listar dispositivos Bluetooth conectados detectados por el sistema
 
 ## Arquitectura inicial
 
@@ -19,7 +20,6 @@ Shell minimo de una app nativa para macOS 14+ construida con SwiftUI.
 
 ## Lo que aun no entra
 
-- Bluetooth
 - bateria
 - notificaciones
 - login at startup

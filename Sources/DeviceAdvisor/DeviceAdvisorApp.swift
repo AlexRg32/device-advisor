@@ -7,10 +7,26 @@ struct DeviceAdvisorApp: App {
 
     init() {
         let settingsStore = UserDefaultsSettingsStore()
+        let connectedDevicesProvider = IOBluetoothConnectedDevicesProvider()
+        let accessibilityPermissionService = DefaultAccessibilityPermissionService()
+        let bluetoothBatteryProvider = CompositeBluetoothBatteryProvider(
+            providers: [
+                ControlCenterBluetoothBatteryProvider(),
+                CoreBluetoothBatteryServiceProvider(),
+                HIDUtilBluetoothBatteryProvider(),
+                SystemProfilerBluetoothBatteryProvider(),
+                UnknownBluetoothBatteryProvider(),
+            ]
+        )
         let activationService = DefaultAppActivationService()
 
         _menuBarViewModel = StateObject(
-            wrappedValue: MenuBarViewModel(appActivationService: activationService)
+            wrappedValue: MenuBarViewModel(
+                connectedDevicesProvider: connectedDevicesProvider,
+                bluetoothBatteryProvider: bluetoothBatteryProvider,
+                appActivationService: activationService,
+                accessibilityPermissionService: accessibilityPermissionService
+            )
         )
         _settingsViewModel = StateObject(
             wrappedValue: SettingsViewModel(settingsStore: settingsStore)
