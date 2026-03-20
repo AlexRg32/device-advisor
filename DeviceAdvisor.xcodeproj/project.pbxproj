@@ -1,0 +1,683 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06DD3BBED3465EEDA7D4EFBB /* CompositeBluetoothBatteryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33742CFDF8097777B9B2C06C /* CompositeBluetoothBatteryProvider.swift */; };
+		105F1B0782D915432CA82643 /* AppSettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF44F5CB3F7BEF5D60F3BA /* AppSettingsStore.swift */; };
+		26FE03F56707E528417E2F8B /* ConnectedBluetoothDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62323C315F0D67F6FA9C73D /* ConnectedBluetoothDevice.swift */; };
+		34758AEBA15EFA71CE52C9C7 /* MenuBarRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93545E086C91FA21461982A /* MenuBarRootView.swift */; };
+		3E224F62E248FFE5D49D68BC /* BluetoothBatteryProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13E7C6CA5E2300D945E779 /* BluetoothBatteryProviding.swift */; };
+		573BC6BECAF6B1D8926A7E1D /* SystemProfilerBluetoothBatteryProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031495C022CDC619F6C665C5 /* SystemProfilerBluetoothBatteryProviderTests.swift */; };
+		5B72101C77FFCA0AD1D761FA /* UnknownBluetoothBatteryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928ED583093A726B7BED46AE /* UnknownBluetoothBatteryProvider.swift */; };
+		5F51FA9E69D9377B023E13F4 /* AccessibilityPermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0C6FD59BE3585D892E95B0 /* AccessibilityPermissionService.swift */; };
+		60CBC504CFCB90CF751B7DB7 /* HIDUtilBluetoothBatteryProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E9C9FDEED899BC9A24DCC /* HIDUtilBluetoothBatteryProviderTests.swift */; };
+		64C2261E895CEA16A2E480D6 /* CompositeBluetoothBatteryProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987BDDC6CF5EC0A97C86FCAC /* CompositeBluetoothBatteryProviderTests.swift */; };
+		7285FD18DBCBCE5D3A687A8C /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20340BB0137D76B1F0F7A16 /* AppTheme.swift */; };
+		779798C09D1CDADD2EFF2553 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B907F76BEEB45A36BC55B3 /* Cocoa.framework */; };
+		7E29E726AA3A105E2BF73934 /* UserDefaultsSettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259D2C073740D376FE478525 /* UserDefaultsSettingsStoreTests.swift */; };
+		860B7C03C84F3FA713D587E6 /* BatteryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E014D2C5AF3CD886775255D /* BatteryState.swift */; };
+		8675A6151E412D5008A74477 /* CoreBluetoothBatteryServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173A9DB811DBC334DBB0413 /* CoreBluetoothBatteryServiceProvider.swift */; };
+		95570D9B248E63173FE073B7 /* DeviceAdvisorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977D31DE0DE33C0F8BB2EE0 /* DeviceAdvisorApp.swift */; };
+		957B9842CD7B186035739461 /* UserDefaultsSettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0545FE02CC28A27055625 /* UserDefaultsSettingsStore.swift */; };
+		968A49FD3B32187A0F377947 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B907F76BEEB45A36BC55B3 /* Cocoa.framework */; };
+		9B8EE192FFE0B81094117C9F /* ConnectedBluetoothDevicesProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE277B629FBC08D4707034EF /* ConnectedBluetoothDevicesProviding.swift */; };
+		9B9B7A9F6C256C2A844E5B38 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BA530867055B2B532F8642 /* SettingsView.swift */; };
+		9E5CE43F09C3439D0415A3E5 /* SystemProfilerBluetoothBatteryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23FE7BB748CFBCAA768E0A3 /* SystemProfilerBluetoothBatteryProvider.swift */; };
+		ABD069A6499765AAD1A7846F /* HIDUtilBluetoothBatteryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326071C1C9F8ED0DAC14F8B6 /* HIDUtilBluetoothBatteryProvider.swift */; };
+		ACFFD4F97DA4DF9DFEB73E58 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7798EC97F5E0512BF2B5233 /* SettingsViewModelTests.swift */; };
+		B1C15B7A358EB83B72E1EBBC /* MenuBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9E68E85B2AC6CFE30E370 /* MenuBarViewModel.swift */; };
+		BC502BDAB37A70D3771E1CB9 /* ControlCenterBluetoothBatteryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5AA3E9B11F6BE1D681EAF /* ControlCenterBluetoothBatteryProvider.swift */; };
+		C1F952C2E93979D8286B00F1 /* AppActivationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CFCEFA966E6CF5D3611F83 /* AppActivationService.swift */; };
+		C228FFB5D4C2C10FFD28A414 /* IOBluetoothConnectedDevicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD47DDF15EA02921A3DA03 /* IOBluetoothConnectedDevicesProvider.swift */; };
+		C30409B131A89E0F85367806 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032B77CFC996977AB16B3E8 /* SettingsViewModel.swift */; };
+		C9957F003F028B552CDD5935 /* ControlCenterBluetoothBatteryProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949EE6F52F792F1B895093C7 /* ControlCenterBluetoothBatteryProviderTests.swift */; };
+		CE5CA0FABB9A0982F0973653 /* MenuBarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD09B87D4E184007EC6939 /* MenuBarViewModelTests.swift */; };
+		EF5AE74B64A40DE39DD406AF /* AppShellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665EC8172712F18F5609ADAD /* AppShellState.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68EB7E4E3975AC92869E6017 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 872DE0FF4041F3D9078D70F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D8B16FC0CD803CF1FB39EE0;
+			remoteInfo = DeviceAdvisor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0032B77CFC996977AB16B3E8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		031495C022CDC619F6C665C5 /* SystemProfilerBluetoothBatteryProviderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemProfilerBluetoothBatteryProviderTests.swift; sourceTree = "<group>"; };
+		0BDD47DDF15EA02921A3DA03 /* IOBluetoothConnectedDevicesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IOBluetoothConnectedDevicesProvider.swift; sourceTree = "<group>"; };
+		1AC9E68E85B2AC6CFE30E370 /* MenuBarViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuBarViewModel.swift; sourceTree = "<group>"; };
+		259D2C073740D376FE478525 /* UserDefaultsSettingsStoreTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserDefaultsSettingsStoreTests.swift; sourceTree = "<group>"; };
+		260E9C9FDEED899BC9A24DCC /* HIDUtilBluetoothBatteryProviderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HIDUtilBluetoothBatteryProviderTests.swift; sourceTree = "<group>"; };
+		2977D31DE0DE33C0F8BB2EE0 /* DeviceAdvisorApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceAdvisorApp.swift; sourceTree = "<group>"; };
+		2BE1A7B2E238A9765F4591A2 /* Package.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		326071C1C9F8ED0DAC14F8B6 /* HIDUtilBluetoothBatteryProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HIDUtilBluetoothBatteryProvider.swift; sourceTree = "<group>"; };
+		33742CFDF8097777B9B2C06C /* CompositeBluetoothBatteryProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompositeBluetoothBatteryProvider.swift; sourceTree = "<group>"; };
+		36AF44F5CB3F7BEF5D60F3BA /* AppSettingsStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppSettingsStore.swift; sourceTree = "<group>"; };
+		47AD09B87D4E184007EC6939 /* MenuBarViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuBarViewModelTests.swift; sourceTree = "<group>"; };
+		61AC3099E40FF291D312AA90 /* DeviceAdvisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceAdvisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		665EC8172712F18F5609ADAD /* AppShellState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppShellState.swift; sourceTree = "<group>"; };
+		7E014D2C5AF3CD886775255D /* BatteryState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatteryState.swift; sourceTree = "<group>"; };
+		928ED583093A726B7BED46AE /* UnknownBluetoothBatteryProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnknownBluetoothBatteryProvider.swift; sourceTree = "<group>"; };
+		949EE6F52F792F1B895093C7 /* ControlCenterBluetoothBatteryProviderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ControlCenterBluetoothBatteryProviderTests.swift; sourceTree = "<group>"; };
+		97CFCEFA966E6CF5D3611F83 /* AppActivationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppActivationService.swift; sourceTree = "<group>"; };
+		987BDDC6CF5EC0A97C86FCAC /* CompositeBluetoothBatteryProviderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompositeBluetoothBatteryProviderTests.swift; sourceTree = "<group>"; };
+		A8C0545FE02CC28A27055625 /* UserDefaultsSettingsStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserDefaultsSettingsStore.swift; sourceTree = "<group>"; };
+		B2BA530867055B2B532F8642 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BE277B629FBC08D4707034EF /* ConnectedBluetoothDevicesProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectedBluetoothDevicesProviding.swift; sourceTree = "<group>"; };
+		CF0C6FD59BE3585D892E95B0 /* AccessibilityPermissionService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccessibilityPermissionService.swift; sourceTree = "<group>"; };
+		D73B1BB4E16147D72BE85E83 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E7798EC97F5E0512BF2B5233 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		E93545E086C91FA21461982A /* MenuBarRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuBarRootView.swift; sourceTree = "<group>"; };
+		E9E293F62CC424D67A4CB97E /* DeviceAdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeviceAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA13E7C6CA5E2300D945E779 /* BluetoothBatteryProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BluetoothBatteryProviding.swift; sourceTree = "<group>"; };
+		EAB5AA3E9B11F6BE1D681EAF /* ControlCenterBluetoothBatteryProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ControlCenterBluetoothBatteryProvider.swift; sourceTree = "<group>"; };
+		F173A9DB811DBC334DBB0413 /* CoreBluetoothBatteryServiceProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreBluetoothBatteryServiceProvider.swift; sourceTree = "<group>"; };
+		F20340BB0137D76B1F0F7A16 /* AppTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		F23FE7BB748CFBCAA768E0A3 /* SystemProfilerBluetoothBatteryProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemProfilerBluetoothBatteryProvider.swift; sourceTree = "<group>"; };
+		F62323C315F0D67F6FA9C73D /* ConnectedBluetoothDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectedBluetoothDevice.swift; sourceTree = "<group>"; };
+		F6B907F76BEEB45A36BC55B3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D2D47EC1220B0292FF34360 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968A49FD3B32187A0F377947 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7EF1B884BD752F74F03689B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				779798C09D1CDADD2EFF2553 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02AF10E91393C78A01CFF4EA /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				36AF44F5CB3F7BEF5D60F3BA /* AppSettingsStore.swift */,
+			);
+			name = Contracts;
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		0D83EF0FC7C838BDA83E528C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				510C4324535C4585BEBC8ACC /* MenuBar */,
+				7B135E3C62190C8CDE3C71FF /* Settings */,
+				FD907EE2D84FCEE3DF888A33 /* Shared */,
+			);
+			name = UI;
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0FC16B1A77C435E8874AF7A0 /* DeviceAdvisor */ = {
+			isa = PBXGroup;
+			children = (
+				2977D31DE0DE33C0F8BB2EE0 /* DeviceAdvisorApp.swift */,
+				42CDE96B9411854F94722CDC /* Domain */,
+				CF513AA06F36CED097AE2F32 /* Infrastructure */,
+				E85B6C7AE699F216DB60431E /* Platform */,
+				0D83EF0FC7C838BDA83E528C /* UI */,
+			);
+			name = DeviceAdvisor;
+			path = DeviceAdvisor;
+			sourceTree = "<group>";
+		};
+		35CE56E9D983FD2A6D55CBB5 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				F6B907F76BEEB45A36BC55B3 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		42CDE96B9411854F94722CDC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				02AF10E91393C78A01CFF4EA /* Contracts */,
+				D882450B147A9A04CC9C4EB9 /* Models */,
+			);
+			name = Domain;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		510C4324535C4585BEBC8ACC /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				E93545E086C91FA21461982A /* MenuBarRootView.swift */,
+				1AC9E68E85B2AC6CFE30E370 /* MenuBarViewModel.swift */,
+			);
+			name = MenuBar;
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		7B135E3C62190C8CDE3C71FF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B2BA530867055B2B532F8642 /* SettingsView.swift */,
+				0032B77CFC996977AB16B3E8 /* SettingsViewModel.swift */,
+			);
+			name = Settings;
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7D2F55BDF67C5C42E08CF8FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61AC3099E40FF291D312AA90 /* DeviceAdvisor.app */,
+				E9E293F62CC424D67A4CB97E /* DeviceAdvisorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84B4E567E2E88387FD905F06 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				EA13E7C6CA5E2300D945E779 /* BluetoothBatteryProviding.swift */,
+				33742CFDF8097777B9B2C06C /* CompositeBluetoothBatteryProvider.swift */,
+				BE277B629FBC08D4707034EF /* ConnectedBluetoothDevicesProviding.swift */,
+				EAB5AA3E9B11F6BE1D681EAF /* ControlCenterBluetoothBatteryProvider.swift */,
+				F173A9DB811DBC334DBB0413 /* CoreBluetoothBatteryServiceProvider.swift */,
+				326071C1C9F8ED0DAC14F8B6 /* HIDUtilBluetoothBatteryProvider.swift */,
+				0BDD47DDF15EA02921A3DA03 /* IOBluetoothConnectedDevicesProvider.swift */,
+				F23FE7BB748CFBCAA768E0A3 /* SystemProfilerBluetoothBatteryProvider.swift */,
+				928ED583093A726B7BED46AE /* UnknownBluetoothBatteryProvider.swift */,
+			);
+			name = Bluetooth;
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		88DD87C14AA5F61AC96E4A76 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A8C0545FE02CC28A27055625 /* UserDefaultsSettingsStore.swift */,
+			);
+			name = Persistence;
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		AA11CE569DE130658BF23590 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35CE56E9D983FD2A6D55CBB5 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1DFC1CC6A66196944C2CF8C = {
+			isa = PBXGroup;
+			children = (
+				7D2F55BDF67C5C42E08CF8FD /* Products */,
+				AA11CE569DE130658BF23590 /* Frameworks */,
+				D73B1BB4E16147D72BE85E83 /* README.md */,
+				2BE1A7B2E238A9765F4591A2 /* Package.swift */,
+				FE04FB7B2D8B286F3A11C840 /* Sources */,
+				E57C3FCEBC5CEFF2588A8526 /* Tests */,
+			);
+			sourceTree = "<group>";
+		};
+		B1F4C737C9C48CE200225921 /* DeviceAdvisorTests */ = {
+			isa = PBXGroup;
+			children = (
+				987BDDC6CF5EC0A97C86FCAC /* CompositeBluetoothBatteryProviderTests.swift */,
+				949EE6F52F792F1B895093C7 /* ControlCenterBluetoothBatteryProviderTests.swift */,
+				260E9C9FDEED899BC9A24DCC /* HIDUtilBluetoothBatteryProviderTests.swift */,
+				47AD09B87D4E184007EC6939 /* MenuBarViewModelTests.swift */,
+				E7798EC97F5E0512BF2B5233 /* SettingsViewModelTests.swift */,
+				031495C022CDC619F6C665C5 /* SystemProfilerBluetoothBatteryProviderTests.swift */,
+				259D2C073740D376FE478525 /* UserDefaultsSettingsStoreTests.swift */,
+			);
+			name = DeviceAdvisorTests;
+			path = DeviceAdvisorTests;
+			sourceTree = "<group>";
+		};
+		BA53231259339F30EF68F216 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				CF0C6FD59BE3585D892E95B0 /* AccessibilityPermissionService.swift */,
+				97CFCEFA966E6CF5D3611F83 /* AppActivationService.swift */,
+			);
+			name = System;
+			path = System;
+			sourceTree = "<group>";
+		};
+		CF513AA06F36CED097AE2F32 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				88DD87C14AA5F61AC96E4A76 /* Persistence */,
+			);
+			name = Infrastructure;
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		D882450B147A9A04CC9C4EB9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				665EC8172712F18F5609ADAD /* AppShellState.swift */,
+				7E014D2C5AF3CD886775255D /* BatteryState.swift */,
+				F62323C315F0D67F6FA9C73D /* ConnectedBluetoothDevice.swift */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E57C3FCEBC5CEFF2588A8526 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B1F4C737C9C48CE200225921 /* DeviceAdvisorTests */,
+			);
+			name = Tests;
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		E85B6C7AE699F216DB60431E /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				84B4E567E2E88387FD905F06 /* Bluetooth */,
+				BA53231259339F30EF68F216 /* System */,
+			);
+			name = Platform;
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		FD907EE2D84FCEE3DF888A33 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F20340BB0137D76B1F0F7A16 /* AppTheme.swift */,
+			);
+			name = Shared;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FE04FB7B2D8B286F3A11C840 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0FC16B1A77C435E8874AF7A0 /* DeviceAdvisor */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6D8B16FC0CD803CF1FB39EE0 /* DeviceAdvisor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D0A0ED57DB8E64FAFBB74EB /* Build configuration list for PBXNativeTarget "DeviceAdvisor" */;
+			buildPhases = (
+				78E0A332E682DAB136A430D0 /* Sources */,
+				1D2D47EC1220B0292FF34360 /* Frameworks */,
+				78ADD8456753CDBAC68E4E20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceAdvisor;
+			productName = DeviceAdvisor;
+			productReference = 61AC3099E40FF291D312AA90 /* DeviceAdvisor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6FBF7FDC1C7CF4FE4C47C444 /* DeviceAdvisorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86B3A9867FEF064842A27A5A /* Build configuration list for PBXNativeTarget "DeviceAdvisorTests" */;
+			buildPhases = (
+				23B76119EB496E02936F4A11 /* Sources */,
+				F7EF1B884BD752F74F03689B /* Frameworks */,
+				201AD926FACF8A9DB614D448 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD9780D84E942A779DE234B2 /* PBXTargetDependency */,
+			);
+			name = DeviceAdvisorTests;
+			productName = DeviceAdvisorTests;
+			productReference = E9E293F62CC424D67A4CB97E /* DeviceAdvisorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		872DE0FF4041F3D9078D70F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+			};
+			buildConfigurationList = 5BF78B88B9847D96EFB9B9D0 /* Build configuration list for PBXProject "DeviceAdvisor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1DFC1CC6A66196944C2CF8C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7D2F55BDF67C5C42E08CF8FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6D8B16FC0CD803CF1FB39EE0 /* DeviceAdvisor */,
+				6FBF7FDC1C7CF4FE4C47C444 /* DeviceAdvisorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		201AD926FACF8A9DB614D448 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78ADD8456753CDBAC68E4E20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23B76119EB496E02936F4A11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64C2261E895CEA16A2E480D6 /* CompositeBluetoothBatteryProviderTests.swift in Sources */,
+				C9957F003F028B552CDD5935 /* ControlCenterBluetoothBatteryProviderTests.swift in Sources */,
+				60CBC504CFCB90CF751B7DB7 /* HIDUtilBluetoothBatteryProviderTests.swift in Sources */,
+				CE5CA0FABB9A0982F0973653 /* MenuBarViewModelTests.swift in Sources */,
+				ACFFD4F97DA4DF9DFEB73E58 /* SettingsViewModelTests.swift in Sources */,
+				573BC6BECAF6B1D8926A7E1D /* SystemProfilerBluetoothBatteryProviderTests.swift in Sources */,
+				7E29E726AA3A105E2BF73934 /* UserDefaultsSettingsStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78E0A332E682DAB136A430D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95570D9B248E63173FE073B7 /* DeviceAdvisorApp.swift in Sources */,
+				105F1B0782D915432CA82643 /* AppSettingsStore.swift in Sources */,
+				EF5AE74B64A40DE39DD406AF /* AppShellState.swift in Sources */,
+				860B7C03C84F3FA713D587E6 /* BatteryState.swift in Sources */,
+				26FE03F56707E528417E2F8B /* ConnectedBluetoothDevice.swift in Sources */,
+				957B9842CD7B186035739461 /* UserDefaultsSettingsStore.swift in Sources */,
+				3E224F62E248FFE5D49D68BC /* BluetoothBatteryProviding.swift in Sources */,
+				06DD3BBED3465EEDA7D4EFBB /* CompositeBluetoothBatteryProvider.swift in Sources */,
+				9B8EE192FFE0B81094117C9F /* ConnectedBluetoothDevicesProviding.swift in Sources */,
+				BC502BDAB37A70D3771E1CB9 /* ControlCenterBluetoothBatteryProvider.swift in Sources */,
+				8675A6151E412D5008A74477 /* CoreBluetoothBatteryServiceProvider.swift in Sources */,
+				ABD069A6499765AAD1A7846F /* HIDUtilBluetoothBatteryProvider.swift in Sources */,
+				C228FFB5D4C2C10FFD28A414 /* IOBluetoothConnectedDevicesProvider.swift in Sources */,
+				9E5CE43F09C3439D0415A3E5 /* SystemProfilerBluetoothBatteryProvider.swift in Sources */,
+				5B72101C77FFCA0AD1D761FA /* UnknownBluetoothBatteryProvider.swift in Sources */,
+				5F51FA9E69D9377B023E13F4 /* AccessibilityPermissionService.swift in Sources */,
+				C1F952C2E93979D8286B00F1 /* AppActivationService.swift in Sources */,
+				34758AEBA15EFA71CE52C9C7 /* MenuBarRootView.swift in Sources */,
+				B1C15B7A358EB83B72E1EBBC /* MenuBarViewModel.swift in Sources */,
+				9B9B7A9F6C256C2A844E5B38 /* SettingsView.swift in Sources */,
+				C30409B131A89E0F85367806 /* SettingsViewModel.swift in Sources */,
+				7285FD18DBCBCE5D3A687A8C /* AppTheme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD9780D84E942A779DE234B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DeviceAdvisor;
+			target = 6D8B16FC0CD803CF1FB39EE0 /* DeviceAdvisor */;
+			targetProxy = 68EB7E4E3975AC92869E6017 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26A2E9CE67BB848BBE192FDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		4ABA2BFA897BEA6B83A40220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Device Advisor";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Device Advisor lee el estado de bateria de dispositivos Bluetooth conectados.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexrg32.deviceadvisor;
+				PRODUCT_NAME = DeviceAdvisor;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		5EB9CB252A8977F9FBAAB035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexrg32.deviceadvisor.tests;
+				PRODUCT_NAME = DeviceAdvisorTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeviceAdvisor.app/Contents/MacOS/DeviceAdvisor";
+			};
+			name = Release;
+		};
+		74A5B99E98672575AFB4C184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexrg32.deviceadvisor.tests;
+				PRODUCT_NAME = DeviceAdvisorTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeviceAdvisor.app/Contents/MacOS/DeviceAdvisor";
+			};
+			name = Debug;
+		};
+		C9F2C6E8E3E3B86C8D2397F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Device Advisor";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Device Advisor lee el estado de bateria de dispositivos Bluetooth conectados.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexrg32.deviceadvisor;
+				PRODUCT_NAME = DeviceAdvisor;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		D71E0B8D49E73E7E8A29BEDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D0A0ED57DB8E64FAFBB74EB /* Build configuration list for PBXNativeTarget "DeviceAdvisor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ABA2BFA897BEA6B83A40220 /* Release */,
+				C9F2C6E8E3E3B86C8D2397F7 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BF78B88B9847D96EFB9B9D0 /* Build configuration list for PBXProject "DeviceAdvisor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D71E0B8D49E73E7E8A29BEDD /* Debug */,
+				26A2E9CE67BB848BBE192FDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86B3A9867FEF064842A27A5A /* Build configuration list for PBXNativeTarget "DeviceAdvisorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EB9CB252A8977F9FBAAB035 /* Release */,
+				74A5B99E98672575AFB4C184 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 872DE0FF4041F3D9078D70F3 /* Project object */;
+}
