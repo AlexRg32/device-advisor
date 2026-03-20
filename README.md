@@ -8,6 +8,7 @@ Shell minimo de una app nativa para macOS 14+ construida con SwiftUI.
 - crear una ventana de ajustes real, aunque todavia minima
 - fijar la arquitectura base del proyecto
 - dejar preparada la persistencia local inicial
+- permitir editar el umbral global desde ajustes
 
 ## Arquitectura inicial
 

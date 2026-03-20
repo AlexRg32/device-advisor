@@ -18,13 +18,29 @@ struct SettingsView: View {
             Divider()
 
             VStack(alignment: .leading, spacing: AppTheme.spacingSmall) {
-                Text("Umbral preparado")
+                Text("Umbral de bateria baja")
                     .font(.headline)
 
                 Text("\(viewModel.lowBatteryThreshold)%")
                     .font(.system(size: 28, weight: .bold, design: .rounded))
 
-                Text("Todavia no hay UI editable para este valor. En esta primera feature solo dejamos el shell y la persistencia base listos.")
+                Stepper(
+                    value: Binding(
+                        get: { viewModel.lowBatteryThreshold },
+                        set: { viewModel.updateLowBatteryThreshold($0) }
+                    ),
+                    in: viewModel.thresholdRange,
+                    step: 1
+                ) {
+                    Text("Ajustar umbral")
+                }
+
+                Text("Cuando el monitor de bateria este conectado, este porcentaje marcara el punto en el que la app debera avisarte.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text("Rango permitido: \(viewModel.thresholdRange.lowerBound)% - \(viewModel.thresholdRange.upperBound)%")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)

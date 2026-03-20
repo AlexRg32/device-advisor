@@ -2,7 +2,6 @@ import SwiftUI
 
 struct MenuBarRootView: View {
     @ObservedObject var viewModel: MenuBarViewModel
-    @Environment(\.openSettings) private var openSettings
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppTheme.spacingMedium) {
@@ -22,9 +21,7 @@ struct MenuBarRootView: View {
 
             Divider()
 
-            Button {
-                openSettings()
-            } label: {
+            SettingsLink {
                 Label("Abrir ajustes", systemImage: "gearshape")
             }
 
